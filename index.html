@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THE ADDICTION — Official Promo & Launch</title>
+  <meta name="description" content="Official promo and launch date for THE ADDICTION. Watch the trailer and set your reminder." />
+  <meta name="theme-color" content="#0b0b10" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="THE ADDICTION — Official Promo & Launch" />
+  <meta property="og:description" content="Watch the promo and see the launch date." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="assets/poster.jpg" />
+  <meta property="og:image:alt" content="Web Series Poster" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="THE ADDICTION — Official Promo & Launch" />
+  <meta name="twitter:description" content="Watch the promo and see the launch date." />
+  <meta name="twitter:image" content="assets/poster.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.png" />
+</head>
+<body>
+  <!-- Background Poster -->
+  <div class="bg">
+    <img src="assets/poster.jpg" alt="Series Poster" class="bg__poster" />
+    <div class="bg__overlay"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header container">
+    <div class="brand">
+      <span class="brand__logo"><img src="assets/poster.jpg" alt="THE ADDICTION logo" class="brand__logo-img" /></span>
+      <span class="brand__name">THE ADDICTION</span>
+    </div>
+    <nav class="nav">
+      <a href="#promo" class="nav__link">Promo</a>
+      <a href="#launch" class="nav__link">Launch</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container">
+      <h1 class="hero__title">THE ADDICTION</h1>
+      <p class="hero__date" id="heroDateText"></p>
+      <p class="hero__tagline">An unforgettable story. Coming soon.</p>
+      <div class="hero__cta">
+        <button id="watchPromoBtn" class="btn btn--primary" type="button">Watch Promo</button>
+        <a id="youtubeLiveLink" class="btn btn--ghost" href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" rel="noopener">Open on YouTube</a>
+        <button id="openInfoModal" class="btn btn--secondary" type="button">Click here</button>
+      </div>
+    </section>
+
+    <!-- Promo Video -->
+    <section id="promo" class="promo container card">
+      <div class="ratio ratio--16x9">
+        <video id="promoVideo" controls preload="metadata" poster="assets/poster.jpg">
+          <source src="assets/promo.mp4" type="video/mp4" />
+          <p>Your browser does not support HTML5 video. You can download the promo video from assets/promo.mp4</p>
+        </video>
+      </div>
+    </section>
+
+    <!-- Launch / Countdown -->
+    <section id="launch" class="launch container card">
+      <h2>Premieres <span id="launchDateText"></span></h2>
+      <div id="countdown" class="countdown">
+        <div class="time"><span id="days">00</span><small>Days</small></div>
+        <div class="time"><span id="hours">00</span><small>Hours</small></div>
+        <div class="time"><span id="minutes">00</span><small>Minutes</small></div>
+        <div class="time"><span id="seconds">00</span><small>Seconds</small></div>
+      </div>
+      <div class="launch__actions">
+        <a id="addToCalendar" class="btn btn--secondary" target="_blank" rel="noopener">Add to Google Calendar</a>
+        <a id="notifyBtn" class="btn btn--ghost" href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" rel="noopener">Set Reminder on YouTube</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>&copy; <span id="year"></span> THE ADDICTION. All rights reserved.</p>
+  </footer>
+
+  <!-- Info Modal -->
+  <div id="infoModal" class="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="backdrop"></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
+      <button class="modal__close" id="closeInfoModal" aria-label="Close">×</button>
+      <h3 id="infoModalTitle" class="modal__title">Release Info</h3>
+      <p class="modal__date">Premieres <span id="modalDateText"></span></p>
+      <div class="ratio ratio--16x9 modal__video">
+        <div class="credits">
+          <img src="assets/poster.jpg" alt="THE ADDICTION Poster" class="credits__poster" />
+          <div class="credits__light" aria-hidden="true"></div>
+          <div class="credits__overlay">
+            <div class="credits__scroll">
+              <p class="credits__line">Story by</p>
+              <h4 class="credits__name">Sathwick Sai</h4>
+              <p class="credits__line">Editor</p>
+              <h4 class="credits__name">Star Boy Laddu</h4>
+            </div>
+            <div class="credits__fade credits__fade--top"></div>
+            <div class="credits__fade credits__fade--bottom"></div>
+          </div>
+        </div>
+      </div>
+      <audio id="creditsAudio" preload="metadata" aria-hidden="true"></audio>
+    </div>
+  </div>
+
+  <!-- Easy configuration: update these values -->
+  <script>
+    window.__CONFIG__ = {
+      youtubeVideoId: "YOUR_VIDEO_ID",           // optional: if you also have a YouTube link
+      promoSrc: "assets/promo.mp4",              // local promo video path
+      launchISO: "2025-10-20T18:06:00",          // local time (06:06 PM)
+      siteUrl: "https://example.com",            // your live site URL (for sharing)
+      title: "THE ADDICTION",
+      description: "Official promo and launch date.",
+      creditsLoopStart: 0,
+      creditsLoopEnd: 12
+    };
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
