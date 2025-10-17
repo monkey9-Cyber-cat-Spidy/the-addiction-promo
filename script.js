@@ -12,12 +12,20 @@
   const watchBtn = document.getElementById('watchPromoBtn');
   const liveLink = document.getElementById('youtubeLiveLink');
   const notifyBtn = document.getElementById('notifyBtn');
+  const subscribeLink = document.getElementById('subscribeLink');
   if(hasYouTube){
     if(liveLink) liveLink.href = ytWatch;
     if(notifyBtn) notifyBtn.href = ytWatch;
   }else{
     if(liveLink) liveLink.style.display = 'none';
     if(notifyBtn) notifyBtn.style.display = 'none';
+  }
+  // Subscription link (always shown)
+  const configuredSub = (cfg.subscribeUrl || '').trim();
+  if(subscribeLink){
+    let href = configuredSub || 'https://youtube.com/@reviews_rayudu?si=3qXoIw89uLhpAkJU';
+    href += href.includes('?') ? '&sub_confirmation=1' : '?sub_confirmation=1';
+    subscribeLink.href = href;
   }
 
   const promoVideo = document.getElementById('promoVideo');
